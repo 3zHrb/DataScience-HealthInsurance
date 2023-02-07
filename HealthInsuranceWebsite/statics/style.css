@@ -1,0 +1,119 @@
+body {
+    background: #d5def5;
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.projectCard {
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    opacity: 0.8;
+}
+
+#projectName {
+    color: #8594e4;
+    text-decoration-line: none;
+    opacity: 0.8;
+}
+
+#projectCreator {
+    color: #8594e4;
+    opacity: 0.8;
+
+}
+
+.container {
+    width: 50%;
+    text-align: center;
+    background-color: #8594e4;
+    margin-left: 23%;
+    margin-right: 25%;
+    padding: 1%;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    padding: 30px;
+}
+
+h2 {
+    color: #d5def5;
+    text-decoration: underline 5px #6643b5;
+}
+
+select {
+    width: 15%;
+    height: 15%;
+    margin-bottom: 20px;
+    ;
+}
+
+
+input {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-style: none;
+    height: 50px;
+    width: 40%;
+    border-radius: 5px;
+    background: #d5def5;
+    padding-left: 10px;
+}
+
+/* input:hover {
+    border-color: #ccc;
+} */
+
+input:focus {
+    border-style: solid;
+    border-color: rgb(69, 94, 181);
+    background: #fff;
+    outline: none;
+}
+
+input::placeholder {
+    text-align: center;
+    font-size: medium;
+    opacity: 0.6;
+}
+
+select {
+    background: #d5def5;
+    text-align: center;
+    height: 50px;
+    width: 42%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border-style: none;
+    padding-left: 10px;
+}
+
+select:focus {
+    opacity: 1;
+}
+
+option {
+    color: red;
+}
+
+label {
+    color: #d5def5;
+}
+
+#submit {
+    background: #6643b5;
+    text-align: center;
+    height: 50px;
+    width: 40%;
+    margin-top: 5px;
+    border-radius: 5px;
+    border-style: none;
+    font-size: large;
+    color: #d5def5;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    opacity: 0.7;
+}
+
+#submit:hover {
+    opacity: 1;
+}
