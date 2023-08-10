@@ -4,43 +4,78 @@
 <head>
     <title>Insurance Price Prediction</title>
     <link rel="stylesheet" href="statics/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="statics/app.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="statics/app.js"></script> -->
 </head>
 
 <body>
+
+    <div class="AboutThisProject">
+        <h3 class="h2ProjectInfo">Note: The data was collected from US Insurance Companies</h3>
+        <h4>Steps Were Taken In This Project:</h4>
+        <li> Data Cleaning:
+            <ul>
+                <li>Missing Values</li>
+                <li>Unmatched Features' Type</li>
+                <li>Data Inconsistency</li>
+                <li>Outliers</li>
+            </ul>
+        </li>
+        <li>
+            Data Analysis
+        </li>
+        <li>Data Processing for Machine Learning Models:</li>
+        <ul>
+            <li>Scaling [age] and [bmi] Features</li>
+            <li>Encoding Non-Numerical Features [gender], [smoker] And [region]</li>
+            <li>Principle Components Analysis</li>
+            <li> Training The ML Models, 2 Approches Were Taken:</li>
+            <ul>
+                <li>Seperating Data Into X and Y, And Splitting X and Y Into Training And Testing</li>
+                <li>Cross Validation, And RandomizedSearchCV For Parameter Tuning</li>
+            </ul>
+        </ul>
+        <li>Exporting The Best Model and The Scaler Using Joblib Library</li>
+        </li>
+        </ul>
+    </div>
+
     <div class="projectCard">
         <h2 id="projectName">Insurance Price Prediction</h2>
         <h4 id="projectCreator">Built by: Abdulaziz Alharbi</h4>
     </div>
     <div class="container">
-        <h2 id="predictionResultText">Predicted Price</h2>
-        <label for="gender">Gender</label><br>
-        <select id="gender" name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select><br>
-        <label for="Age">Age</label><br>
-        <input type="text" id="age" name="Age" placeholder="Age"></input><br>
-        <label for="BMI">BMI</label><br>
-        <input type="text" id="bmi" name="BMI" placeholder="BMI"></input><br>
-        <label for="Children">Children</label><br>
-        <input type="text" id="children" name="Children" placeholder="Number Of Children"></input><br>
-        <label for="smoker">Smoker</label><br>
-        <select id="smoker" name="smoker">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-        </select><br>
-        <label for="region">Region</label><br>
-        <select id="region" name="region">
-            <option value="northeast">North East</option>
-            <option value="northwest">North West</option>
-            <option value="southeast">South East</option>
-            <option value="southwest">South West</option>
-        </select><br>
-        <button id="submit" type="button" onclick="submitButtonIsPressed()">Submit</button>
+        <form method=POST action="{{ url_for('result') }}">
+            {% if predictedPrice %}
+            <h2 id="predictionResultText">Predicted Price ${{ predictedPrice }}</h2>
+            {% endif %}
+            <label for="gender">Gender</label><br>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br>
+            <label for="Age">Age</label><br>
+            <input type="text" id="age" name="age" placeholder="Age"></input><br>
+            <label for="BMI">BMI</label><br>
+            <input type="text" id="bmi" name="bmi" placeholder="BMI"></input><br>
+            <label for="Children">Children</label><br>
+            <input type="text" id="children" name="children" placeholder="Number Of Children"></input><br>
+            <label for="smoker">Smoker</label><br>
+            <select id="smoker" name="smoker">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select><br>
+            <label for="region">Region</label><br>
+            <select id="region" name="region">
+                <option value="northeast">North East</option>
+                <option value="northwest">North West</option>
+                <option value="southeast">South East</option>
+                <option value="southwest">South West</option>
+            </select><br>
+            <!-- <button id="submit" type="button" onclick="submitButtonIsPressed()">Submit</button> -->
+            <input id="submit" type="submit" value="Submit">
         </form>
-        <div>
+
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 from crypt import methods
 from pydoc import render_doc
 from statistics import mode
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 import joblib
 import sklearn
 import numpy as np
@@ -22,14 +22,18 @@ def home():
 @app.route("/result", methods=["POST"])
 def result():
 
+    print("we are inside resulr()")
+
     input = []
 
-    age = request.form["age"]
-    bmi = request.form["bmi"]
-    children = request.form["children"]
-    smoker = request.form["smoker"]
-    gender = request.form["gender"]
-    region = request.form["region"]
+    age = request.form.get("age")
+    bmi = request.form.get("bmi")
+    children = request.form.get("children")
+    smoker = request.form.get("smoker")
+    gender = request.form.get("gender")
+    region = request.form.get("region")
+
+    print(f"{age}: {bmi}: {children}: {smoker}: {gender}: {region}")
 
     input.append(age)
     input.append(bmi)
@@ -63,7 +67,8 @@ def result():
 
     predict = model.predict(np.array([input]))
 
-    return str(predict[0])
+    print(f"prediction: {predict[0].astype('int')}")
+    return render_template("index.html", predictedPrice=str(predict[0].astype("int")))
 
 
 if __name__ == "__main__":

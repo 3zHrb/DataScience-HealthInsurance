@@ -1,12 +1,7 @@
-//[age, bmi, children, no(smoker), male(sex), northeast(region), northwest(region), southeast(region)]
+
 function windowJustLoaded() {
     $('#predictionResultText').css('visibility', 'hidden');
 }
-
-// var regionsValue = [0, 0, 0]
-// var regionsName = ['northeast', 'northwest', 'southeast']
-
-// input = {}
 
 function submitButtonIsPressed() {
     var age = $("#age").val();
@@ -16,7 +11,6 @@ function submitButtonIsPressed() {
     var gender = $("#gender").val();
     var region = $("#region").val();
 
-    // $.post('')
 
     input = { 'age': age, 'bmi': bmi, 'children': children, 'smoker': smoker, 'gender': gender, 'region': region }
     console.log(input)
@@ -25,8 +19,9 @@ function submitButtonIsPressed() {
 
     $(window).scrollTop(0);
     $.post('http://127.0.0.1:5000/result', input, function (data, status) {
-        $("#predictionResultText").css('visibility', 'visible');
-        $("#predictionResultText").text(`Your Insurance Predicted Price: $${data}`);
+        resultElement = document.querySelector("#predictionResultText");
+        resultElement.style.visibility = "visible";
+        resultElement.innerText = `Your Insurance Predicted Price: $${data}`;
     })
 
 }
